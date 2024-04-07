@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Events</title>
+  <style>
+    /* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Styles */
+header {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+/* Filter Section Styles */
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-section label {
+  color: #333;
+  font-weight: bold;
+}
+
+.filter-section select {
+  padding: 8px;
+  margin-left: 10px;
+}
+
+/* Event Styles */
+.event {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  transition: transform 0.3s;
+}
+
+.event:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.event h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.event p {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+/* Pagination Styles */
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 0 4px;
+  background-color: #ddd;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+}
+  </style>
+
+</head>
+<body>
+  <header>
+    <h1>College Events</h1>
+    <div class="filter-section">
+      <label for="interests">Filter by interest:</label>
+      <select id="interests">
+        <option value="all">All</option>
+        <option value="academic">Academic</option>
+        <option value="sports">Sports</option>
+        <option value="cultural">Cultural</option>
+      </select>
+    </div>
+  </header>
+  <main id="events-list" class="container">
+    <!-- Events will be dynamically added here -->
+  </main>
+  <script >
+    document.addEventListener("DOMContentLoaded", function() {
+  const eventsList = document.getElementById("events-list");
+  const interestsSelect = document.getElementById("interests");
+
+  const events = [
+    { title: "Mathematics Seminar", interest: "academic", time: "10:00 AM", venue: "Room A101" },
+    { title: "Basketball Game", interest: "sports", time: "2:00 PM", venue: "Sports Arena" },
+    { title: "Music Concert", interest: "cultural", time: "7:00 PM", venue: "Auditorium" },
+    { title: "Physics Lecture", interest: "academic", time: "9:00 AM", venue: "Lecture Hall B" },
+    { title: "Football Match", interest: "sports", time: "3:00 PM", venue: "Football Field" },
+    { title: "Art Exhibition", interest: "cultural", time: "6:00 PM", venue: "Art Gallery" }
+  ];
+
+  function renderEvents(interest) {
+    eventsList.innerHTML = "";
+    events.forEach(event => {
+      if (interest === "all" || event.interest === interest) {
+        const eventElement = document.createElement("div");
+        eventElement.classList.add("event");
+        eventElement.innerHTML = `
+          <h2><a href="event-details.html?title=${encodeURIComponent(event.title)}&time=${encodeURIComponent(event.time)}&venue=${encodeURIComponent(event.venue)}">${event.title}</a></h2>
+          <p><strong>Time:</strong> ${event.time}</p>
+          <p><strong>Venue:</strong> ${event.venue}</p>
+        `;
+        eventsList.appendChild(eventElement);
+      }
+    });
+  }
+
+  interestsSelect.addEventListener("change", function() {
+    renderEvents(this.value);
+  });
+
+  // Initial rendering
+  renderEvents("all");
+});
+  </script>
+</body>
+</html>

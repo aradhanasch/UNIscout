@@ -1,0 +1,162 @@
+/* Reset default styles */
+body, h1, h2, h3, p, ul, li, input, textarea, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #4b62d2;
+  }
+  
+  /* Set background color and text color */
+  body {
+    background-color: #f8f9fa;
+    color: #c52626;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Container for centering content */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    color: #218838;
+  }
+  
+  /* Header styles */
+  .header {
+    background-color: #343a40;
+    color: #9d936f;
+    padding: 20px 0;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  nav ul {
+    list-style: none;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #47a7a4;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  /* Hero section styles */
+  .hero {
+    background-image: url('campus.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    color: #3a87e6;
+  }
+  
+  .hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  /* Button styles */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* About section styles */
+  .about {
+    padding: 100px 0;
+  }
+  
+  .about h2 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .about p {
+    font-size: 1.1rem;
+  }
+  
+  /* Map section styles */
+  .map {
+    padding: 100px 0;
+  }
+  
+  .map h2 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  #map {
+    height: 400px;
+  }
+  
+  /* Contact section styles */
+  .contact {
+    padding: 100px 0;
+  }
+  
+  .contact h2 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .contact form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .contact input, .contact textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #9dd77b;
+  }
+  
+  .contact textarea {
+    height: 150px;
+  }
+  
+  .contact button {
+    display: block;
+    margin: 0 auto;
+    background-color: #28a745;
+    color: #c82626;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact button:hover {
+    background-color: #81de95;
+  }
+  
+  /* Footer styles */
+  .footer {
+    background-color: #2573c1;
+    color: #b791c6;
+    text-align: center;
+    padding: 20px 0;
+  }
+  

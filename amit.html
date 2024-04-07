@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Navigator Map</title>
+  <!-- Include Leaflet CSS and JavaScript -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Set map container dimensions -->
+  <style>
+    #map {
+      height: 600px;
+      width: 800px;
+    }
+  </style>
+</head>
+<body>
+  <a href="campuse.html">Click on Event</a>
+  <a href="log.html">click</a>
+
+<div id="map"></div>
+
+<script>
+  // Initialize the map
+  var map = L.map('map').setView([51.505, -0.09], 13); // Set initial coordinates and zoom level
+
+  // Add a base layer (you can use different tile providers)
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.bennett.edu.in/campus-tour/">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  // Add markers for important landmarks
+  var markers = [
+    { name: "Main Building", coordinates: [51.505, -0.09] },
+    { name: "Library", coordinates: [51.51, -0.1] },
+    { name: "Parking Lot", coordinates: [51.505, -0.095] }
+  ];
+
+  markers.forEach(function(marker) {
+    L.marker(marker.coordinates).addTo(map).bindPopup(marker.name);
+  });
+
+  // Add a search control
+  L.control.search({
+    layer: L.layerGroup([L.marker([51.505, -0.09])]), // Example layer to search
+    initial: false,
+    propertyName: 'name',
+  }).addTo(map);
+</script>
+
+</body>
+</html>
